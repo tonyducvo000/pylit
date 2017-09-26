@@ -29,11 +29,14 @@ with open(con, "r") as myfile:
             if (len(string2) - index == 1 or len(string2) - index == 0):
                 break
 
-            if string2[index][0] == string2[index + 1][0]:
+            if string2[index][0] == string2[index + 1][0] or \
+            string2[index][0:1] == string2[index + 1][0:1]:
                 result.append(string[index])
                 result.append(string[index+1])
                 index += 2
                 while True:
+                    if (len(string2) - index == 1 or len(string2) - index == 0):
+                        break
                     if string2[index][0] == string2[index - 1][0]:
                         result.append(string[index])
                         index += 1
